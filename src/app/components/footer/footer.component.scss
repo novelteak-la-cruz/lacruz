@@ -1,0 +1,83 @@
+// Modern White Footer Styles
+footer {
+
+  .brand-icon {
+    .rounded-3:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(94, 0, 57, 0.3) !important;
+      transition: all 0.3s ease;
+    }
+  }
+  
+  .location-item {
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      padding-left: 0.5rem;
+      background: rgba(94, 0, 57, 0.02);
+      border-radius: 8px;
+      margin: 0 -0.5rem;
+    }
+  }
+  
+  .investment-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(94, 0, 57, 0.08);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  .social-link-footer {
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      
+      div {
+        background: #5e0039 !important;
+        color: white !important;
+        box-shadow: 0 8px 20px rgba(94, 0, 57, 0.3);
+      }
+      
+      &:nth-child(3) div {
+        background: #5e0039 !important;
+        color: white !important;
+        box-shadow: 0 8px 20px rgba(94, 0, 57, 0.3);
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  footer {
+    .row.g-5 {
+      gap: 2rem !important;
+    }
+    
+    .col-lg-4, .col-lg-3, .col-lg-2 {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+// Animation for subtle elements
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer .container > * {
+  animation: fadeIn 0.6s ease-out;
+}

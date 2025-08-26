@@ -1,0 +1,288 @@
+<nav class="modern-navbar">
+    <div class="container-fluid">
+        <!-- Brand -->
+        <a class="brand-logo" href="#" (click)="closeMobileMenu()">
+            <div class="brand-text">
+                <img src="./assets/logo_tenant.svg" alt="" width="200">
+            </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="desktop-nav d-none d-lg-flex">
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-item">{{ translations.home }}</a></li>
+                <li><a href="#video" class="nav-item">{{ currentLanguage === 'en' ? 'Gallery' : 'Galería' }}</a></li>
+                <li><a href="#features" class="nav-item">{{ translations.features }}</a></li>
+                <li><a href="#location" class="nav-item">{{ translations.location }}</a></li>
+                <li><a href="#contact" class="nav-item">{{ translations.contact }}</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Language Toggle -->
+                <div class="language-switch">
+                    <button class="lang-option" [class.active]="currentLanguage === 'en'"
+                        (click)="switchLanguage('en')">EN</button>
+                    <button class="lang-option" [class.active]="currentLanguage === 'es'"
+                        (click)="switchLanguage('es')">ES</button>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-phone"></i>
+                    <span>{{ currentLanguage === 'en' ? 'Contact Us' : 'Contáctanos' }}</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Button (Bootstrap Offcanvas Trigger) -->
+        <button class="btn btn-link d-lg-none p-2" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#mobileOffcanvas" aria-controls="mobileOffcanvas" aria-label="Toggle navigation"
+            [attr.aria-expanded]="false" (click)="toggleMobileMenu()">
+            <i class="fas fa-bars fs-4 text-dark"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Bootstrap Offcanvas Mobile Menu -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mobileOffcanvas" aria-labelledby="mobileOffcanvasLabel" data-bs-backdrop="true" data-bs-scroll="false">
+
+    <!-- Ultra Modern Futuristic Header -->
+    <div class="offcanvas-header">
+        <!-- Animated Background Pattern -->
+        <div class="header-pattern"></div>
+        <div class="header-gradient"></div>
+
+        <div class="header-content">
+            <!-- Premium Brand Section -->
+            <div class="brand-showcase">
+
+                <div class="brand-info">
+                    <h4 class="brand-title">
+                        <img src="./assets/Logo_Novelteak_blanco.png" alt="Novelteak" width="200">
+                    </h4>
+                </div>
+            </div>
+
+            <!-- Dynamic Stats Cards -->
+            <div class="stats-showcase">
+                <div class="stat-card" data-value="13">
+                    <div class="stat-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">13</div>
+                        <div class="stat-unit">{{ currentLanguage === 'en' ? 'Hectares' : 'Hectáreas' }}</div>
+                    </div>
+                    <div class="stat-glow"></div>
+                </div>
+
+                <div class="stat-card" data-value="3.0">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">3.5M</div>
+                        <div class="stat-unit">USD</div>
+                    </div>
+                    <div class="stat-glow"></div>
+                </div>
+
+                <div class="stat-card" data-value="100">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">ROI</div>
+                        <div class="stat-unit">{{ currentLanguage === 'en' ? 'Potential' : 'Potencial' }}</div>
+                    </div>
+                    <div class="stat-glow"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ultra Modern Close Button -->
+        <button type="button" class="btn-close-futuristic" data-bs-dismiss="offcanvas" aria-label="Close" (click)="closeMobileMenu()">
+            <div class="close-icon">
+                <span class="close-line close-line-1"></span>
+                <span class="close-line close-line-2"></span>
+            </div>
+            <div class="close-ripple"></div>
+        </button>
+    </div>
+
+    <!-- Ultra Modern Body -->
+    <div class="offcanvas-body">
+
+        <!-- Floating Navigation -->
+        <div class="nav-section-modern">
+            <div class="section-title-modern">
+                <div class="title-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <span class="title-text">{{ currentLanguage === 'en' ? 'Explore Experience' : 'Explorar Experiencia'
+                    }}</span>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="nav-grid-modern">
+                <div class="nav-card-modern" (click)="navigateToSection('home')">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="card-content">
+                        <h6 class="card-title">{{ translations.home }}</h6>
+                        <p class="card-desc">{{ currentLanguage === 'en' ? 'Premium overview & luxury highlights' :
+                            'Resumen premium y características de lujo' }}</p>
+                    </div>
+                    <div class="card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+
+                <div class="nav-card-modern" (click)="navigateToSection('video')">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="card-content">
+                        <h6 class="card-title">{{ currentLanguage === 'en' ? 'Gallery' : 'Galería' }}</h6>
+                        <p class="card-desc">{{ currentLanguage === 'en' ? 'Immersive visuals & virtual reality tour' :
+                            'Visuales inmersivas y tour de realidad virtual' }}</p>
+                    </div>
+                    <div class="card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+
+                <div class="nav-card-modern" (click)="navigateToSection('features')">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="card-content">
+                        <h6 class="card-title">{{ translations.features }}</h6>
+                        <p class="card-desc">{{ currentLanguage === 'en' ? 'Exclusive amenities & luxury features' :
+                            'Comodidades exclusivas y características de lujo' }}</p>
+                    </div>
+                    <div class="card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+
+                <div class="nav-card-modern" (click)="navigateToSection('location')">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="card-content">
+                        <h6 class="card-title">{{ translations.location }}</h6>
+                        <p class="card-desc">{{ currentLanguage === 'en' ? 'Strategic location & connectivity' :
+                            'Ubicación estratégica y conectividad' }}</p>
+                    </div>
+                    <div class="card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Premium Settings -->
+        <div class="settings-section-modern">
+            <div class="section-title-modern">
+                <div class="title-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <span class="title-text">{{ currentLanguage === 'en' ? 'Experience Settings' : 'Configuración de Experiencia' }}</span>
+                <div class="title-line"></div>
+            </div>
+
+            <!-- Ultra Modern Language Selector -->
+            <div class="language-selector-modern">
+                <div class="language-header">
+                    <div class="language-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="language-info">
+                        <h6 class="language-title">{{ currentLanguage === 'en' ? 'Language Preference' : 'Preferencia de Idioma' }}</h6>
+                        <p class="language-subtitle">{{ currentLanguage === 'en' ? 'Choose your experience language' : 'Elige el idioma de tu experiencia' }}</p>
+                    </div>
+                </div>
+
+                <div class="language-buttons">
+                    <button class="lang-btn-modern" [class.active]="currentLanguage === 'en'"
+                        (click)="switchLanguage('en')">
+                        <div class="btn-bg"></div>
+                        <div class="btn-content">
+                            <span class="flag-modern">🇺🇸</span>
+                            <span class="lang-text">English</span>
+                        </div>
+                        <div class="btn-glow"></div>
+                    </button>
+
+                    <button class="lang-btn-modern" [class.active]="currentLanguage === 'es'"
+                        (click)="switchLanguage('es')">
+                        <div class="btn-bg"></div>
+                        <div class="btn-content">
+                            <span class="flag-modern">🇪🇸</span>
+                            <span class="lang-text">Español</span>
+                        </div>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ultra Premium CTA -->
+        <div class="cta-section-modern">
+            <div class="cta-content-modern">
+                <div class="cta-header">
+                    <div class="cta-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h5 class="cta-title">
+                        {{ currentLanguage === 'en' ? 'Discover Your Dream Property' : 'Descubre Tu Propiedad Ideal' }}
+                    </h5>
+                    <p class="cta-subtitle">
+                        {{ currentLanguage === 'en' ? 'Get detailed information about this exclusive property in Costa Rica' : 'Obtén información detallada sobre esta propiedad exclusiva en Costa Rica' }}
+                    </p>
+                </div>
+
+                <div class="cta-actions-modern">
+                    <button class="cta-btn-primary-modern" (click)="navigateToSection('contact')">
+                        <div class="btn-content-modern">
+                            <i class="fas fa-phone me-2"></i>
+                            <span>{{ currentLanguage === 'en' ? 'Contact Us Today' : 'Contáctanos Hoy' }}</span>
+                        </div>
+                    </button>
+
+                    <button class="cta-btn-secondary-modern" (click)="navigateToSection('contact')">
+                        <div class="btn-content-modern">
+                            <i class="fas fa-envelope me-2"></i>
+                            <span>{{ currentLanguage === 'en' ? 'Request Information' : 'Solicitar Información' }}</span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>{{ currentLanguage === 'en' ? 'Secure' : 'Seguro' }}</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-clock"></i>
+                        <span>{{ currentLanguage === 'en' ? 'Fast Response' : 'Respuesta Rápida' }}</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-star"></i>
+                        <span>{{ currentLanguage === 'en' ? 'Premium' : 'Premium' }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

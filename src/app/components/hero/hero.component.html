@@ -1,0 +1,238 @@
+<!-- Hero Section with Video Background -->
+<section id="home" class="hero-video-section">
+    <!-- Video Background -->
+    <div class="hero-video-background">
+        <video
+            autoplay
+            muted
+            loop
+            playsinline
+            class="hero-video"
+            preload="auto"
+            webkit-playsinline
+            x5-playsinline
+            onloadstart="console.log('Video: Load started')"
+            oncanplay="console.log('Video: Can play')"
+            oncanplaythrough="console.log('Video: Can play through')"
+            onplaying="console.log('Video: Playing')"
+            onerror="console.error('Video: Error loading')"
+        >
+            <source src="assets/videos/hero.mp4" type="video/mp4" />
+            <!-- Fallback para navegadores que no soporten el video -->
+            <p>{{ currentLanguage === 'en' ? 'Your browser does not support the video tag.' : 'Tu navegador no soporta la etiqueta de video.' }}</p>
+        </video>
+        <div class="hero-video-overlay"></div>
+    </div>
+
+    <div class="container position-relative">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-8 col-xl-7">
+                <div class="hero-content">
+                    <!-- Property Badge -->
+                    <div class="property-badge mb-4">
+                        <span class="badge-text">
+                            <i class="fas fa-star me-2"></i>
+                            {{ currentLanguage === 'en' ? 'Premium Investment Opportunity' : 'Oportunidad de Inversión Premium' }}
+                        </span>
+                    </div>
+
+                    <!-- Main Title -->
+                    <h1 class="hero-title mb-4">
+                        {{ currentLanguage === 'en' ? '13 Strategic Hectares' : '13 Hectáreas Estratégicas' }}
+                        <span class="title-highlight">
+                            {{ currentLanguage === 'en' ? 'for Sale' : 'en Venta' }}
+                        </span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="hero-subtitle mb-4">
+                        {{ currentLanguage === 'en' ? 'Premium commercial land near Liberia International Airport in Costa Rica\'s fastest-growing tourism region' : 'Terreno comercial premium cerca del Aeropuerto Internacional de Liberia enla región turística de mayor crecimiento de Costa Rica' }}
+                    </p>
+
+                    <!-- Key Features -->
+                    <div class="hero-features mb-5">
+                        <div class="feature-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>{{ currentLanguage === 'en' ? 'Strategic Location' : 'Ubicación Estratégica' }}</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>{{ currentLanguage === 'en' ? 'High ROI Potential' : 'Alto Potencial de ROI' }}</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-hammer"></i>
+                            <span>{{ currentLanguage === 'en' ? 'Development Ready' : 'Listo para Desarrollo' }}</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>{{ currentLanguage === 'en' ? 'Direct Sale with Novelteak' : 'Venta Directa con Novelteak' }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary btn-hero">
+                            <i class="fas fa-phone me-2"></i>
+                            {{ currentLanguage === 'en' ? 'Contact Owner' : 'Contactar Propietario' }}
+                        </a>
+                        <a href="#features" class="btn btn-outline-light btn-hero">
+                            <i class="fas fa-info-circle me-2"></i>
+                            {{ currentLanguage === 'en' ? 'View Details' : 'Ver Detalles' }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Info Card -->
+            <div class="col-lg-4 col-xl-5">
+                <div class="property-info-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            {{ currentLanguage === 'en' ? 'Property Details' : 'Detalles de la Propiedad' }}
+                        </h3>
+                        <span class="property-status">
+                            {{ currentLanguage === 'en' ? 'Available Now' : 'Disponible Ahora' }}
+                        </span>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="property-price">
+                            <span class="price-amount">$3,500,000</span>
+                            <span class="price-unit">USD</span>
+                        </div>
+
+                        <div class="property-details">
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    {{ currentLanguage === 'en' ? 'Total Area' : 'Área Total' }}
+                                </span>
+                                <span class="detail-value">132,347 m²</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    {{ currentLanguage === 'en' ? 'Location' : 'Ubicación' }}
+                                </span>
+                                <span class="detail-value">Liberia, Guanacaste</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    {{ currentLanguage === 'en' ? 'Type' : 'Tipo' }}
+                                </span>
+                                <span class="detail-value">
+                                    {{ currentLanguage === 'en' ? 'Commercial Land' : 'Terreno Comercial' }}
+                                </span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">
+                                    {{ currentLanguage === 'en' ? 'Airport Distance' : 'Distancia Aeropuerto' }}
+                                </span>
+                                <span class="detail-value"> < 5 {{ currentLanguage==='en' ? 'minutes' : 'minutos' }}</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-owner">
+                            <a [href]="'tel:' + getTelLink()" class="btn btn-contact">
+                                <i class="fas fa-phone me-2"></i>
+                                {{ getFormattedPhone() }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <a href="#features" class="scroll-link">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </div>
+</section>
+
+<!-- Video Section -->
+<section id="video" class="py-5 bg-light">
+    <div class="container">
+        <!-- Section Title -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-5 fw-bold mb-3">
+                    {{ currentLanguage === 'en' ? 'Property Gallery' : 'Galería de la Propiedad' }}
+                </h2>
+                <div class="mx-auto mb-4" style="width: 100px; height: 4px; background: linear-gradient(45deg, #5e0039, #7a0049); border-radius: 2px;"></div>
+                <p class="lead text-muted">
+                    {{ currentLanguage === 'en' ? 'Explore this stunning property through our interactive gallery' : 'Explora esta impresionante propiedad a través de nuestra galería interactiva' }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Main Media Content -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-10">
+                <div class="media-container position-relative rounded-4 overflow-hidden shadow-lg">
+                    <div class="ratio ratio-16x9">
+                        <!-- Video Display -->
+                        <div *ngIf="currentMediaType === 'video'" class="video-wrapper w-100 h-100">
+                            <video controls muted playsinline class="w-100 h-100 rounded-4" preload="metadata" webkit-playsinline x5-playsinline>
+                                <source src="assets/videos/hero.mp4" type="video/mp4" />
+                                <p>{{ currentLanguage === 'en' ? 'Your browser does not support the video tag.' : 'Tu navegador no soporta la etiqueta de video.' }}</p>
+                            </video>
+                        </div>
+
+                        <!-- Image Display -->
+                        <div *ngIf="currentMediaType === 'image'" class="image-wrapper w-100 h-100">
+                            <img [src]="getCurrentImagePath()" [alt]="'Property image ' + (currentImageIndex + 1)" class="w-100 h-100 object-fit-cover rounded-4" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Carousel -->
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="gallery-carousel">
+                    <div class="carousel-container d-flex gap-3 overflow-auto pb-3" style="scroll-behavior: smooth;">
+                        <!-- Video Thumbnail -->
+                        <div class="gallery-item" (click)="showVideo()">
+                            <div
+                                class="gallery-thumbnail rounded-3 overflow-hidden position-relative"
+                                [class.active]="currentMediaType === 'video'"
+                                style="width: 120px; height: 80px; flex-shrink: 0; cursor: pointer; border: 3px solid transparent; transition: all 0.3s ease;"
+                            >
+                                <video muted playsinline class="w-100 h-100 object-fit-cover" style="pointer-events: none;">
+                                    <source src="assets/videos/hero.mp4" type="video/mp4" />
+                                </video>
+                                <div class="video-overlay position-absolute top-50 start-50 translate-middle">
+                                    <div class="play-icon bg-primary bg-opacity-75 rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
+                                        <i class="fas fa-play text-white small"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Image Thumbnails -->
+                        <div class="gallery-item" *ngFor="let image of galleryImages; let i = index" (click)="showImage(i)">
+                            <div
+                                class="gallery-thumbnail rounded-3 overflow-hidden"
+                                [class.active]="currentMediaType === 'image' && currentImageIndex === i"
+                                style="width: 120px; height: 80px; flex-shrink: 0; cursor: pointer; border: 3px solid transparent; transition: all 0.3s ease;"
+                            >
+                                <img [src]="image" [alt]="'Property thumbnail ' + (i + 1)" class="w-100 h-100 object-fit-cover" loading="lazy" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Info -->
+        <div class="row justify-content-center mt-4" *ngIf="currentMediaType === 'image'">
+            <div class="col-lg-10 text-center">
+                <p class="text-muted mb-0">
+                    {{ currentLanguage === 'en' ? 'Image' : 'Imagen' }} {{ currentImageIndex + 1 }} {{ currentLanguage === 'en' ? 'of' : 'de' }} {{ galleryImages.length }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

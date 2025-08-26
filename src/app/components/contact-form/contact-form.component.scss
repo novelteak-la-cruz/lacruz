@@ -1,0 +1,105 @@
+// Modern Contact Section Styles (sin animaciones)
+:host {
+    display: block;
+}
+
+// Modern form styles (sin animaciones, labels visibles)
+.modern-form {
+    .form-control-modern {
+        border: 2px solid rgba(94, 0, 57, 0.1);
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+
+        &:focus {
+            border-color: #5e0039;
+            box-shadow: 0 0 0 0.2rem rgba(94, 0, 57, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+            outline: none;
+        }
+
+        &:hover {
+            border-color: rgba(94, 0, 57, 0.2);
+            background: rgba(255, 255, 255, 0.9);
+        }
+    }
+
+    .form-floating {
+        position: relative;
+
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 1rem 1.25rem;
+            overflow: hidden;
+            text-align: start;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            pointer-events: none;
+            border: 1px solid transparent;
+            transform-origin: 0 0;
+            color: rgba(94, 0, 57, 0.7);
+            font-weight: 500;
+            z-index: 1;
+        }
+
+        .form-control:focus~label,
+        .form-control:not(:placeholder-shown)~label {
+            opacity: 0.85;
+            transform: scale(0.75) translateY(-1.4rem) translateX(0.15rem);
+            color: #5e0039;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.25rem 0.5rem;
+            border-radius: 10px;
+            width: auto;
+            height: auto;
+        }
+
+        .form-control:focus~label {
+            color: #5e0039;
+        }
+    }
+}
+
+// Glass morphism effect for cards (sin hover effects)
+.card {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+// Responsive adjustments (sin animaciones)
+@media (max-width: 991.98px) {
+    .modern-form .form-control-modern {
+        padding: 0.875rem 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    section[id="contact"] {
+        padding: 3rem 0 !important;
+    }
+
+    .card-body {
+        padding: 2rem !important;
+    }
+
+    .display-4 {
+        font-size: 2.5rem !important;
+    }
+}
+
+// Additional modern touches (sin animaciones)
+.badge {
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+// Security badge styling
+.text-muted.small {
+    font-weight: 500;
+    letter-spacing: 0.25px;
+}

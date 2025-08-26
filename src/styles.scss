@@ -1,0 +1,488 @@
+/* Real Estate Landing Page - Bootstrap 5.3.7 */
+
+/* Bootstrap Variables Override */
+$primary: #5e0039;
+$secondary: #4a002d;
+$info: #7a0049;
+
+@import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Custom CSS Variables */
+:root {
+  --primary-color: #5e0039;
+  --secondary-color: #4a002d;
+  --accent-color: #7a0049;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --dark-color: #1f2937;
+  --light-color: #f8fafc;
+  
+  /* Z-index hierarchy */
+  --z-offcanvas: 1045;
+  --z-backdrop: 1040;
+  --z-navbar: 1030;
+  --z-hero: 1;
+  
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+}
+
+/* Bootstrap Color Overrides */
+.bg-primary {
+  background-color: #5e0039 !important;
+}
+
+.bg-primary.bg-opacity-10 {
+  background-color: rgba(94, 0, 57, 0.1) !important;
+}
+
+.text-primary {
+  color: #5e0039 !important;
+}
+
+.border-primary {
+  border-color: #5e0039 !important;
+}
+
+.btn-primary {
+  background-color: #5e0039;
+  border-color: #5e0039;
+}
+
+.btn-primary:hover {
+  background-color: #4a002d;
+  border-color: #4a002d;
+}
+
+/* Custom icon container styles for better contrast */
+.icon-container-primary {
+  background-color: rgba(94, 0, 57, 0.15);
+  color: #5e0039;
+}
+
+.icon-container-primary .text-primary {
+  color: #5e0039 !important;
+}
+
+/* Footer icon improvements */
+.bg-dark .text-primary {
+  color: #7a0049 !important; /* Lighter variant for dark backgrounds */
+}
+
+/* Fix for low contrast in transparent backgrounds */
+.bg-primary.bg-opacity-10 .text-primary,
+.bg-primary[class*="bg-opacity"] .text-primary {
+  color: #4a002d !important; /* Darker variant for better contrast on light backgrounds */
+}
+
+/* Improve contrast for icon containers with transparent backgrounds */
+.bg-primary.bg-opacity-10 {
+  background-color: rgba(94, 0, 57, 0.08) !important;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: #374151;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--dark-color);
+}
+
+.display-1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+.lead {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Navbar Styles */
+.navbar {
+  padding: 1rem 0;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--dark-color) !important;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #6b7280 !important;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color) !important;
+  background-color: rgba(37, 99, 235, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Features Section */
+.features-section {
+  padding: 5rem 0;
+}
+
+.feature-icon {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* Property Gallery */
+.property-gallery {
+  padding: 5rem 0;
+  background-color: var(--light-color);
+}
+
+.property-image {
+  border-radius: 1rem;
+  overflow: hidden;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Location Section */
+.location-section {
+  padding: 5rem 0;
+}
+
+.stats-card {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.stats-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  font-family: var(--font-heading);
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.contact-form {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  color: var(--dark-color);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--dark-color);
+  color: #9ca3af;
+  padding: 3rem 0 1rem;
+}
+
+.footer h5 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.footer a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--accent-color);
+}
+
+/* Utilities */
+.section-padding {
+  padding: 5rem 0;
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 80vh;
+    text-align: center;
+  }
+  
+  .display-1 {
+    font-size: 2.5rem;
+  }
+  
+  .features-section,
+  .property-gallery,
+  .location-section {
+    padding: 3rem 0;
+  }
+}
+
+/* Video Section Styles */
+#video {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.ratio iframe {
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.ratio:hover iframe {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Video Overlay Styles */
+#video-overlay {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(59, 130, 246, 0.8));
+  backdrop-filter: blur(4px);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#video-overlay:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(59, 130, 246, 0.9));
+}
+
+#video-overlay .btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+#video-overlay .btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+/* Smooth Scroll Enhancement */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile Menu Override - Global Fix */
+.mobile-nav {
+  position: fixed !important;
+  top: 80px !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 80px) !important;
+  background: white !important;
+  z-index: 99999 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 0.3s ease !important;
+
+  &.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+}
+
+.mobile-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 99998 !important;
+
+  &.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+}
+
+/* Global Offcanvas Z-index Fix */
+.offcanvas {
+  z-index: var(--z-offcanvas) !important;
+}
+
+.offcanvas-backdrop {
+  z-index: var(--z-backdrop) !important;
+}
+
+.mobile-menu-btn {
+  z-index: 999999 !important;
+  position: relative !important;
+}
+
+/* Force mobile menu visibility when body has mobile-menu-open class */
+body.mobile-menu-open {
+  .mobile-nav {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    z-index: 99999 !important;
+  }
+  
+  .mobile-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    z-index: 99998 !important;
+  }
+  
+  /* Hide all other content below mobile menu */
+  .hero-video-section,
+  .hero-content,
+  .property-info-card {
+    z-index: 1 !important;
+  }
+}

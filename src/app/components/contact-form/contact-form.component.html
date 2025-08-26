@@ -1,0 +1,172 @@
+<!-- Contact Section -->
+<section id="contact" class="position-relative overflow-hidden py-5" style="background: linear-gradient(135deg, #5e0039 0%, #4a002d 50%, #7a0049 100%);">
+    <!-- Background Pattern -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 2px, transparent 2px); background-size: 50px 50px; opacity: 0.3;"></div>
+
+    <div class="container position-relative">
+        <!-- Section Header -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <div class="mb-4">
+                    <span class="badge bg-white bg-opacity-20 text-primary px-3 py-2 rounded-pill fw-medium mb-3">
+                        <i class="fas fa-handshake me-2"></i>
+                        {{ currentLanguage === 'en' ? 'Get In Touch' : 'Contáctanos' }}
+                    </span>
+                </div>
+                <h2 class="display-4 fw-bold text-white mb-3">{{ translations.contactTitle }}</h2>
+                <p class="lead text-white text-opacity-90 mb-4">{{ translations.contactSubtitle }}</p>
+                <div class="mx-auto" style="width: 120px; height: 4px; background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4)); border-radius: 2px;"></div>
+            </div>
+        </div>
+
+        <div class="row g-5 align-items-start">
+            <!-- Contact Info -->
+            <div class="col-lg-5">
+                <!-- Owner Card -->
+                <div class="card border-0 mb-4" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                    <div class="card-body p-4 text-center">
+                        <div class="position-relative mx-auto mb-3" style="width: 100px; height: 100px;">
+                            <div class="position-relative overflow-hidden rounded-circle border border-3" style="width: 100%; height: 100%; border-color: #5e0039 !important;">
+                                <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: linear-gradient(135deg, #5e0039, #7a0049);">
+                                    <i class="fas fa-building text-white" style="font-size: 2.5rem;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="h4 fw-bold mb-1" style="color: #5e0039;">Novelteak</h3>
+                        <p class="text-muted mb-3">{{ currentLanguage === 'en' ? 'Property Owner' : 'Propietario del Terreno' }}</p>
+                        <div class="d-flex justify-content-center gap-2">
+                            <span class="badge px-2 py-1 rounded-pill small" style="background: #5e0039; color: white;">
+                                <i class="fas fa-handshake me-1"></i>
+                                {{ currentLanguage === 'en' ? 'Direct Sale' : 'Venta Directa' }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Methods -->
+                <div class="d-grid gap-3">
+                    <a [href]="'tel:' + getTelLink()" class="contact-method-card phone-card text-decoration-none">
+                        <div class="d-flex align-items-center p-4 rounded-4" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                            <div class="contact-icon me-3">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: #5e0039;">
+                                    <i class="fas fa-phone text-white fs-5"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="fw-semibold mb-1" style="color: #5e0039;">{{ translations.callNow }}</div>
+                                <div class="text-muted small">{{ getFormattedPhone() }}</div>
+                            </div>
+                            <div class="contact-arrow">
+                                <i class="fas fa-arrow-right" style="color: #5e0039;"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a [href]="getWhatsAppLink()" target="_blank" class="contact-method-card whatsapp-card text-decoration-none">
+                        <div class="d-flex align-items-center p-4 rounded-4" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                            <div class="contact-icon me-3">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: #5e0039;">
+                                    <i class="fab fa-whatsapp text-white fs-5"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="fw-semibold mb-1" style="color: #5e0039;">WhatsApp</div>
+                                <div class="text-muted small">{{ getFormattedWhatsApp() }}</div>
+                            </div>
+                            <div class="contact-arrow">
+                                <i class="fas fa-arrow-right" style="color: #5e0039;"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a [href]="'mailto:' + property?.contactInfo.email" class="contact-method-card email-card text-decoration-none">
+                        <div class="d-flex align-items-center p-4 rounded-4" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                            <div class="contact-icon me-3">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background: #5e0039;">
+                                    <i class="fas fa-envelope text-white fs-5"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="fw-semibold mb-1" style="color: #5e0039;">{{ translations.email }}</div>
+                                <div class="text-muted small">{{ property?.contactInfo.email }}</div>
+                            </div>
+                            <div class="contact-arrow">
+                                <i class="fas fa-arrow-right" style="color: #5e0039;"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="card border-0 shadow-lg" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);">
+                    <div class="card-body p-5">
+                        <div class="mb-4">
+                            <h3 class="h4 fw-bold mb-2" style="color: #5e0039;">{{ translations.sendMessage }}</h3>
+                            <p class="text-muted mb-0">
+                                {{ currentLanguage === 'en' ? 'Fill out the form below and we\'ll get back to you shortly.' : 'Completa el formulario y te contactaremos pronto.' }}
+                            </p>
+                        </div>
+
+                        <form class="modern-form">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control form-control-modern" id="firstName" [placeholder]="translations.firstName" required />
+                                        <label for="firstName" class="text-muted">{{ translations.firstName }}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control form-control-modern" id="lastName" [placeholder]="translations.lastName" required />
+                                        <label for="lastName" class="text-muted">{{ translations.lastName }}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control form-control-modern" id="email" [placeholder]="translations.email" required />
+                                        <label for="email" class="text-muted">{{ translations.email }}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control form-control-modern" id="phone" [placeholder]="translations.phone" />
+                                        <label for="phone" class="text-muted">{{ translations.phone }}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control form-control-modern" id="message" style="min-height: 120px;" [placeholder]="translations.messagePlaceholder"></textarea>
+                                        <label for="message" class="text-muted">{{ translations.message }}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100 py-3 rounded-3 fw-semibold" style="background: linear-gradient(135deg, #5e0039, #7a0049); border: none; position: relative; overflow: hidden;">
+                                        <span class="position-relative z-1">
+                                            <i class="fas fa-paper-plane me-2"></i>
+                                            {{ translations.sendMessage }}
+                                        </span>
+                                        <div class="position-absolute top-0 start-0 w-100 h-100 opacity-0" style="background: linear-gradient(135deg, #7a0049, #5e0039); transition: opacity 0.3s ease;"></div>
+                                    </button>
+                                </div>
+
+                                <div class="col-12 text-center">
+                                    <p class="text-muted small mb-0">
+                                        <i class="fas fa-shield-alt me-2" style="color: #5e0039;"></i>
+                                        {{ currentLanguage === 'en' ? 'Your information is secure and will not be shared.' : 'Tu información es segura y no será compartida.' }}
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
