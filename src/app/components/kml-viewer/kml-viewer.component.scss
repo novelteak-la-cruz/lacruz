@@ -1,0 +1,381 @@
+.kml-viewer-container {
+    height: calc(100vh - 60px); // Solo resta el header (sin footer)
+    overflow: hidden;
+    position: relative;
+
+    .viewer-layout {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+
+    .sidebar-section {
+        flex: 0 0 25%;
+        /* 1/4 de la pantalla */
+        width: 25%;
+        background: #f8f9fa;
+        border-right: 1px solid #dee2e6;
+        overflow-y: auto;
+        position: relative;
+
+        .info-panel {
+            padding: 1rem 0rem;
+            height: 100%;
+
+            .card {
+                border: 1px solid #dee2e6;
+                border-radius: 0;
+                box-shadow: none;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+
+                .card-header {
+                    color: white;
+                    border-radius: 0;
+                    padding: 1rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border: none;
+
+                    h6 {
+                        margin: 0;
+                        font-weight: 600;
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .badge {
+                        background: rgba(255, 255, 255, 0.2) !important;
+                        font-weight: 600;
+                    }
+                }
+
+                .card-body {
+                    padding: 1rem;
+                    flex: 1;
+                    overflow-y: auto;
+                }
+            }
+        }
+    }
+
+    .map-section {
+        flex: 1;
+        /* 3/4 de la pantalla - toma el espacio restante */
+        position: relative;
+        overflow: hidden;
+        height: 100%; // Altura completa del contenedor
+    }
+
+    // Estilos para la lista de elementos
+    .elements-list {
+        max-height: 100%;
+        overflow-y: auto;
+    }
+
+    .element-item {
+        background: white;
+        border: 1px solid #e9ecef;
+        border-radius: 0;
+        margin-bottom: 0.75rem;
+        padding: 1rem;
+        cursor: pointer;
+
+        &:hover {
+            border-color: #5E0039;
+            background-color: #f8f9fa;
+        }
+    }
+
+    .element-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    }
+
+    .element-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-right: 0.75rem;
+
+        i {
+            font-size: 1.1rem;
+        }
+    }
+
+    .element-info {
+        flex: 1;
+    }
+
+    .element-name {
+        color: #374151;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        line-height: 1.3;
+    }
+
+    .element-badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0;
+        font-weight: 500;
+
+        &.badge-placemark {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        &.badge-polygon {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        &.badge-linestring {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        &.badge-point {
+            background: #fce7f3;
+            color: #be185d;
+        }
+    }
+
+    .zoom-btn {
+        background: none;
+        border: 1px solid #d1d5db;
+        color: #6b7280;
+        width: 32px;
+        height: 32px;
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &:hover {
+            background: #5E0039;
+            border-color: #5E0039;
+            color: white;
+        }
+    }
+
+    .element-details {
+        border-top: 1px solid #f3f4f6;
+        padding-top: 0.75rem;
+        margin-top: 0.75rem;
+    }
+
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.25rem 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid #f9fafb;
+        }
+    }
+
+    .detail-label {
+        font-size: 0.8rem;
+        color: #6b7280;
+        font-weight: 500;
+    }
+
+    .detail-value {
+        font-size: 0.8rem;
+        color: #374151;
+        font-weight: 600;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 2rem;
+        color: #9ca3af;
+    }
+
+    // Sección de resumen general
+    .summary-section {
+        border-top: 1px solid #e9ecef;
+        padding-top: 1rem;
+        margin-top: 1rem;
+        
+        .summary-header {
+            margin-bottom: 1rem;
+            
+            .summary-title {
+                color: #5E0039;
+                font-weight: 600;
+                font-size: 0.9rem;
+                margin: 0;
+                display: flex;
+                align-items: center;
+            }
+        }
+        
+        .summary-content {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 0;
+            padding: 1rem;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            
+            &:not(:last-child) {
+                border-bottom: 1px solid #e9ecef;
+            }
+            
+            .summary-label {
+                font-size: 0.8rem;
+                color: #6b7280;
+                font-weight: 500;
+            }
+            
+            .summary-value {
+                font-size: 0.8rem;
+                color: #374151;
+                font-weight: 600;
+            }
+        }
+        
+        .summary-actions {
+            .btn {
+                border-radius: 0;
+                font-size: 0.8rem;
+                font-weight: 500;
+                
+                &:hover {
+                    background-color: #5E0039;
+                    border-color: #5E0039;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    // Estilos del mapa
+    .map-container {
+        width: 100%;
+        height: 100%;
+        background: #e5e7eb;
+    }
+
+    .loading-overlay,
+    .error-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .loading-overlay {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .error-overlay {
+        background: rgba(220, 38, 38, 0.9);
+    }
+
+    .loading-content,
+    .error-content {
+        text-align: center;
+        color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        max-width: 400px;
+    }
+
+    .loading-text,
+    .error-text {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .map-controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    /* Scrollbar personalizado */
+    .elements-list::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .elements-list::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+
+    .elements-list::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 3px;
+    }
+
+    .elements-list::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+    }
+
+    /* Estilos específicos para Leaflet */
+    .leaflet-container {
+        height: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .viewer-layout {
+            flex-direction: column;
+        }
+
+        .sidebar-section {
+            flex: 0 0 40%;
+            width: 100%;
+        }
+
+        .map-section {
+            flex: 1;
+        }
+    }
+}
+
+// Configuración del componente
+:host {
+    display: block;
+    height: 100vh; // Altura completa de la ventana
+    
+    // Anular cualquier transformación global
+    * {
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    // Permitir solo cambios de color instantáneos
+    *:hover {
+        transform: none !important;
+        transition: none !important;
+    }
+}

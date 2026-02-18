@@ -124,11 +124,28 @@
                 width: 0;
                 height: 2px;
                 background: #5e0039;
-
             }
 
             &:hover::after {
                 width: 100%;
+            }
+
+            // Estilo especial para el enlace del visor KML
+            &.kml-viewer-link {
+                background: linear-gradient(135deg, #5e0039 0%, #7a0049 100%);
+                color: white !important;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                
+                // Eliminar completamente el pseudo-elemento
+                &::after {
+                    display: none !important;
+                }
+                
+                &:hover::after,
+                &.active::after {
+                    display: none !important;
+                }
             }
         }
     }
@@ -183,23 +200,15 @@
     background: linear-gradient(135deg, #5e0039, #7a0049);
     color: white;
     text-decoration: none;
-    padding: 0.6rem 1rem;
+    padding: 0.48rem 1rem;
     border-radius: 8px;
     font-weight: 500;
     font-size: 0.85rem;
-
-    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
     white-space: nowrap;
 
     @media (min-width: 1200px) {
-        padding: 0.75rem 1.5rem;
+        padding: 0.48rem 1.5rem;
         font-size: 0.9rem;
-    }
-
-    &:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        color: white;
     }
 }
 
@@ -666,12 +675,12 @@
             width: 0;
             height: 2px;
             background: var(--accent-color);
-
         }
 
         &:hover::after,
         &.active::after {
-            width: 100%;
+            width: 0 !important; // Eliminamos la expansión de la barra completamente
+            display: none !important; // Y también ocultamos el elemento
         }
     }
 }
@@ -885,8 +894,6 @@
         &:focus {
             box-shadow: none;
         }
-
-        .navbar-toggler-icon {}
 
         &:not(.collapsed) .navbar-toggler-icon {
             transform: rotate(90deg);
@@ -1845,9 +1852,6 @@ body.offcanvas-open {
 .offcanvas.show {
     transform: translateX(0);
 }
-
-// Animación para el toggle manual
-.offcanvas {}
 
 // Z-index para el offcanvas y backdrop
 .offcanvas {

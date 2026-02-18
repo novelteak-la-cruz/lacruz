@@ -1,7 +1,7 @@
 <nav class="modern-navbar">
     <div class="container-fluid">
         <!-- Brand -->
-        <a class="brand-logo" href="#" (click)="closeMobileMenu()">
+        <a class="brand-logo" (click)="navigateToHome()" style="cursor: pointer;">
             <div class="brand-text">
                 <img src="./assets/logo_tenant.svg" alt="" width="200">
             </div>
@@ -15,6 +15,9 @@
                 <li><a href="#features" class="nav-item">{{ translations.features }}</a></li>
                 <li><a href="#location" class="nav-item">{{ translations.location }}</a></li>
                 <li><a href="#contact" class="nav-item">{{ translations.contact }}</a></li>
+                <li><a (click)="navigateToKmlViewer()" class="nav-item kml-viewer-link" style="cursor: pointer;">
+                    <i class="bi bi-map me-1"></i>{{ currentLanguage === 'en' ? 'Map Viewer' : 'Visor de Mapa' }}
+                </a></li>
             </ul>
 
             <div class="nav-actions">
@@ -65,34 +68,34 @@
 
             <!-- Dynamic Stats Cards -->
             <div class="stats-showcase">
-                <div class="stat-card" data-value="13">
+                <div class="stat-card" data-value="15.9">
                     <div class="stat-icon">
                         <i class="fas fa-mountain"></i>
                     </div>
                     <div class="stat-content">
-                        <div class="stat-number">13</div>
+                        <div class="stat-number">15.9</div>
                         <div class="stat-unit">{{ currentLanguage === 'en' ? 'Hectares' : 'Hectáreas' }}</div>
                     </div>
                     <div class="stat-glow"></div>
                 </div>
 
-                <div class="stat-card" data-value="3.0">
+                <div class="stat-card" data-value="0">
                     <div class="stat-icon">
-                        <i class="fas fa-dollar-sign"></i>
+                        <i class="fas fa-tree"></i>
                     </div>
                     <div class="stat-content">
-                        <div class="stat-number">3.5M</div>
-                        <div class="stat-unit">USD</div>
+                        <div class="stat-number">{{ currentLanguage === 'en' ? 'Eco' : 'Eco' }}</div>
+                        <div class="stat-unit">{{ currentLanguage === 'en' ? 'Project' : 'Proyecto' }}</div>
                     </div>
                     <div class="stat-glow"></div>
                 </div>
 
                 <div class="stat-card" data-value="100">
                     <div class="stat-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-leaf"></i>
                     </div>
                     <div class="stat-content">
-                        <div class="stat-number">ROI</div>
+                        <div class="stat-number">{{ currentLanguage === 'en' ? 'Natural' : 'Natural' }}</div>
                         <div class="stat-unit">{{ currentLanguage === 'en' ? 'Potential' : 'Potencial' }}</div>
                     </div>
                     <div class="stat-glow"></div>
@@ -182,6 +185,22 @@
                         <h6 class="card-title">{{ translations.location }}</h6>
                         <p class="card-desc">{{ currentLanguage === 'en' ? 'Strategic location & connectivity' :
                             'Ubicación estratégica y conectividad' }}</p>
+                    </div>
+                    <div class="card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+
+                <div class="nav-card-modern" (click)="navigateToKmlViewer()">
+                    <div class="card-bg"></div>
+                    <div class="card-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="card-content">
+                        <h6 class="card-title">{{ currentLanguage === 'en' ? 'Map Viewer' : 'Visor de Mapa' }}</h6>
+                        <p class="card-desc">{{ currentLanguage === 'en' ? 'Interactive property maps & boundaries' :
+                            'Mapas interactivos de propiedades y límites' }}</p>
                     </div>
                     <div class="card-arrow">
                         <i class="fas fa-arrow-right"></i>

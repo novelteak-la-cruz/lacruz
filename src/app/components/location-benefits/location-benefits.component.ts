@@ -4,11 +4,12 @@ import { Subscription } from 'rxjs';
 import { Property } from '../../models/property.model';
 import { PropertyService } from '../../services/property.service';
 import { LanguageService, Language } from '../../services/language.service';
+import { KmlViewerComponent } from '../kml-viewer/kml-viewer.component';
 
 @Component({
   selector: 'app-location-benefits',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, KmlViewerComponent],
   templateUrl: './location-benefits.component.html',
   styleUrl: './location-benefits.component.scss'
 })

@@ -31,7 +31,7 @@
                     <div class="col-6">
                         <div class="text-center p-3 rounded-3 border"
                             style="border-color: rgba(94, 0, 57, 0.1) !important; background: rgba(94, 0, 57, 0.02);">
-                            <div class="h5 fw-bold mb-1" style="color: #5e0039;">13</div>
+                            <div class="h5 fw-bold mb-1" style="color: #5e0039;">15.9</div>
                             <div class="small text-muted fw-medium">{{ currentLanguage === 'en' ? 'Hectares' :
                                 'Hectáreas' }}</div>
                         </div>
@@ -39,8 +39,8 @@
                     <div class="col-6">
                         <div class="text-center p-3 rounded-3 border"
                             style="border-color: rgba(94, 0, 57, 0.1) !important; background: rgba(94, 0, 57, 0.02);">
-                            <div class="h5 fw-bold mb-1" style="color: #5e0039;">$3.5M</div>
-                            <div class="small text-muted fw-medium">{{ currentLanguage === 'en' ? 'Value' : 'Valor' }}
+                            <div class="h5 fw-bold mb-1" style="color: #5e0039;">{{ currentLanguage === 'en' ? 'Price' : 'Precio' }}</div>
+                            <div class="small text-muted fw-medium">{{ currentLanguage === 'en' ? 'Contact' : 'Consultar' }}
                             </div>
                         </div>
                     </div>
@@ -90,26 +90,26 @@
                 <div class="d-grid gap-2">
                     <div class="location-item">
                         <div class="small fw-medium d-flex align-items-center" style="color: #495057;">
-                            <i class="fas fa-plane me-2" style="color: #7a0049; width: 16px;"></i>
-                            {{ currentLanguage === 'en' ? '5 min Airport' : '5 min Aeropuerto' }}
-                        </div>
-                    </div>
-                    <div class="location-item">
-                        <div class="small fw-medium d-flex align-items-center" style="color: #495057;">
-                            <i class="fas fa-road me-2" style="color: #7a0049; width: 16px;"></i>
-                            {{ currentLanguage === 'en' ? '2 min Highway' : '2 min Autopista' }}
+                            <i class="fas fa-map-marked-alt me-2" style="color: #7a0049; width: 16px;"></i>
+                            {{ currentLanguage === 'en' ? '5 min La Cruz' : '5 min La Cruz' }}
                         </div>
                     </div>
                     <div class="location-item">
                         <div class="small fw-medium d-flex align-items-center" style="color: #495057;">
                             <i class="fas fa-umbrella-beach me-2" style="color: #7a0049; width: 16px;"></i>
-                            {{ currentLanguage === 'en' ? 'Beach Access' : 'Acceso Playa' }}
+                            {{ currentLanguage === 'en' ? '25 min Beaches' : '25 min Playas' }}
                         </div>
                     </div>
                     <div class="location-item">
                         <div class="small fw-medium d-flex align-items-center" style="color: #495057;">
-                            <i class="fas fa-building me-2" style="color: #7a0049; width: 16px;"></i>
-                            {{ currentLanguage === 'en' ? '10 min Downtown' : '10 min Centro' }}
+                            <i class="fas fa-tree me-2" style="color: #7a0049; width: 16px;"></i>
+                            {{ currentLanguage === 'en' ? 'National Park' : 'Parque Nacional' }}
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="small fw-medium d-flex align-items-center" style="color: #495057;">
+                            <i class="fas fa-plane me-2" style="color: #7a0049; width: 16px;"></i>
+                            {{ currentLanguage === 'en' ? '1h to Airport' : '1h al Aeropuerto' }}
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                         <div class="small text-muted fw-medium">
                             {{ currentLanguage === 'en' ? 'Total Area' : 'Área Total' }}
                         </div>
-                        <div class="fw-semibold" style="color: #2c3e50;">13 {{ currentLanguage === 'en' ? 'Hectares' :
+                        <div class="fw-semibold" style="color: #2c3e50;">15.9 {{ currentLanguage === 'en' ? 'Hectares' :
                             'Hectáreas' }}</div>
                     </div>
 
@@ -135,7 +135,7 @@
                         <div class="small text-muted fw-medium">
                             {{ currentLanguage === 'en' ? 'Investment Value' : 'Valor de Inversión' }}
                         </div>
-                        <div class="fw-semibold" style="color: #2c3e50;">$3,500,000 USD</div>
+                        <div class="fw-semibold" style="color: #2c3e50;">{{ currentLanguage === 'en' ? 'Contact for Price' : 'Consultar Precio' }}</div>
                     </div>
 
                     <div class="investment-item">
@@ -143,7 +143,7 @@
                             {{ currentLanguage === 'en' ? 'Type' : 'Tipo' }}
                         </div>
                         <div class="fw-semibold" style="color: #2c3e50;">
-                            {{ currentLanguage === 'en' ? 'Commercial/Residential' : 'Comercial/Residencial' }}
+                            {{ currentLanguage === 'en' ? 'Ecological/Eco-Tourism' : 'Ecológico/Eco-Turístico' }}
                         </div>
                     </div>
                 </div>

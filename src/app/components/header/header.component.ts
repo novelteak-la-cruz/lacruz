@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LanguageService, Language } from '../../services/language.service';
 import { BootstrapService } from '../../services/bootstrap.service';
@@ -20,6 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private languageService: LanguageService,
     public bootstrapService: BootstrapService,
+    private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
@@ -91,6 +93,10 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   switchLanguage(language: Language): void {
     this.languageService.setLanguage(language);
     this.closeMobileMenu();
+    
+    // Log para verificar que la persistencia funciona
+    console.log(`🌐 Idioma cambiado a: ${language}`);
+    console.log(`💾 Preferencia guardada en localStorage: ${this.languageService.hasStoredLanguagePreference()}`);
   }
 
   // Método para navegar a una sección y cerrar el menú
@@ -205,5 +211,17 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
         backdrop.remove();
       }
     }
+  }
+
+  // Navegar al visor KML
+  public navigateToKmlViewer(): void {
+    this.router.navigate(['/kml-viewer']);
+    this.closeMobileMenu();
+  }
+
+  // Navegar al home
+  public navigateToHome(): void {
+    this.router.navigate(['/']);
+    this.closeMobileMenu();
   }
 }

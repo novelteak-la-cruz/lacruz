@@ -8,26 +8,26 @@ import { Property } from '../models/property.model';
 export class PropertyService {
 
     private propertyData: Property = {
-        id: 'liberia-strategic-land',
+        id: 'lacruz-ecological-land',
         title: {
-            en: '13 Strategic Hectares for Sale – Premium Location Near Liberia Airport',
-            es: '13 Hectáreas Estratégicas en Venta – Ubicación Premium Cerca del Aeropuerto de Liberia'
+            en: '15.9 Hectares for Sale in La Cruz',
+            es: 'Propiedad de 15,9 Hectáreas en Venta en La Cruz'
         },
         description: {
-            en: 'Discover an exceptional investment opportunity with these 13 strategic hectares (132,347 m²) located in one of Costa Rica\'s most promising areas. Just minutes from Liberia International Airport and perfectly positioned in the heart of Guanacaste\'s growing tourism corridor.',
-            es: 'Descubre una oportunidad de inversión excepcional con estas 13 hectáreas estratégicas (132,347 m²) ubicadas en una de las áreas más prometedoras de Costa Rica. A pocos minutos del Aeropuerto Internacional de Liberia y perfectamente posicionadas en el corazón del creciente corredor turístico de Guanacaste.'
+            en: 'Unique opportunity in northern Costa Rica: Just 5 minutes from downtown La Cruz, Guanacaste. Strategic location with ecological, tourism, and residential potential. Surrounded by national park biodiversity in a peaceful setting.',
+            es: 'Oportunidad única en el norte de Costa Rica: A solo 5 minutos del centro de La Cruz, Guanacaste. Ubicación estratégica con potencial ecológico, turístico y residencial. Rodeado de biodiversidad del Parque Nacional en un entorno tranquilo.'
         },
         location: {
-            en: 'Liberia, Guanacaste, Costa Rica',
-            es: 'Liberia, Guanacaste, Costa Rica'
+            en: 'La Cruz, Guanacaste, Costa Rica',
+            es: 'La Cruz, Guanacaste, Costa Rica'
         },
         type: {
-            en: 'Commercial Land',
-            es: 'Terreno Comercial'
+            en: 'Ecological Land',
+            es: 'Terreno Ecológico'
         },
-        price: 3000000,
+        price: 0,
         currency: 'USD',
-        area: 132347,
+        area: 159000,
         areaUnit: 'm²',
         bedrooms: 0,
         bathrooms: 0,
@@ -35,110 +35,112 @@ export class PropertyService {
             en: [
                 {
                     icon: 'fas fa-map-marker-alt',
-                    title: 'Strategic Location',
-                    description: 'Less than 5 minutes from Liberia International Airport, main gateway to Guanacaste'
+                    title: 'Privileged Location',
+                    description: '5 minutes from downtown La Cruz, 25 minutes from virgin beaches like Junquillal and El Jobo'
+                },
+                {
+                    icon: 'fas fa-tree',
+                    title: 'National Park Border',
+                    description: 'Borders National Park, surrounded by biodiversity and tranquility'
                 },
                 {
                     icon: 'fas fa-road',
-                    title: 'Highway Frontage',
-                    description: 'Direct access to main highway with high visibility and excellent connectivity'
+                    title: 'Paved Road Access',
+                    description: 'Frontage on paved road with good public access'
                 },
                 {
                     icon: 'fas fa-mountain',
-                    title: 'Flat & Ready',
-                    description: 'Flat terrain ready for development with easy construction possibilities'
+                    title: 'Natural Terrain',
+                    description: '15.9 hectares of rolling terrain with natural views and fresh climate'
                 },
                 {
-                    icon: 'fas fa-city',
-                    title: 'Flexible Zoning',
-                    description: 'Allows commercial, tourism, light industrial, and mixed-use developments'
-                },
-                {
-                    icon: 'fas fa-plug',
-                    title: 'Utilities Ready',
-                    description: 'Access to electricity, water, telecommunications, and waste management'
+                    icon: 'fas fa-globe-americas',
+                    title: 'Near Nicaragua',
+                    description: 'Close to Nicaragua border, ideal for cross-border or binational projects'
                 },
                 {
                     icon: 'fas fa-chart-line',
-                    title: 'High ROI Potential',
-                    description: 'Located in Costa Rica\'s fastest-growing tourism and commercial region'
+                    title: 'North Atlantic Corridor',
+                    description: 'With the future development of the North Atlantic corridor'
                 }
             ],
             es: [
                 {
                     icon: 'fas fa-map-marker-alt',
-                    title: 'Ubicación Estratégica',
-                    description: 'A menos de 5 minutos del Aeropuerto Internacional de Liberia, puerta principal a Guanacaste'
+                    title: 'Ubicación Privilegiada',
+                    description: 'A 5 minutos del centro de La Cruz, a 25 minutos de playas vírgenes como Junquillal y El Jobo'
+                },
+                {
+                    icon: 'fas fa-tree',
+                    title: 'Colinda con Parque Nacional',
+                    description: 'Colinda con Parque Nacional, rodeado de biodiversidad y tranquilidad'
                 },
                 {
                     icon: 'fas fa-road',
-                    title: 'Frente a Carretera',
-                    description: 'Acceso directo a carretera principal con alta visibilidad y excelente conectividad'
+                    title: 'Frente a Carretera Asfaltada',
+                    description: 'Frente a carretera asfaltada con acceso por camino público en buen estado'
                 },
                 {
                     icon: 'fas fa-mountain',
-                    title: 'Plano y Listo',
-                    description: 'Terreno plano listo para desarrollo con facilidades de construcción'
+                    title: 'Terreno Natural',
+                    description: '15,9 hectáreas de terreno ondulado con vistas naturales y clima fresco'
                 },
                 {
-                    icon: 'fas fa-city',
-                    title: 'Zonificación Flexible',
-                    description: 'Permite desarrollos comerciales, turísticos, industriales ligeros y uso mixto'
-                },
-                {
-                    icon: 'fas fa-plug',
-                    title: 'Servicios Listos',
-                    description: 'Acceso a electricidad, agua, telecomunicaciones y manejo de desechos'
+                    icon: 'fas fa-globe-americas',
+                    title: 'Cerca de Nicaragua',
+                    description: 'Cercano a la frontera con Nicaragua, ideal para proyectos transfronterizos o binacionales'
                 },
                 {
                     icon: 'fas fa-chart-line',
-                    title: 'Alto Potencial ROI',
-                    description: 'Ubicado en la región turística y comercial de mayor crecimiento de Costa Rica'
+                    title: 'Corredor Noratlántico',
+                    description: 'Con el futuro desarrollo del corredor noratlántico'
                 }
             ]
         },
         benefits: {
             en: [
-                'Prime location in Costa Rica\'s fastest-growing tourism and commercial hub',
-                'Direct proximity to Daniel Oduber Quirós International Airport (< 5 minutes)',
-                'Strategic position on main highway connecting Pacific beaches and Nicaragua border',
-                'Growing international tourism demand with year-round high occupancy rates',
-                'Significant government and private investment in regional infrastructure',
-                'Excellent air, land, and digital connectivity for business operations',
-                'Tax incentives available for tourism and export-oriented investments',
-                'Proven track record of real estate appreciation in the area'
+                'Growing interest in nature tourism in the northern zone',
+                'Proximity to border and Liberia airport (1 hour)',
+                'High ecological value and low tourist saturation',
+                'Conservation policies and support for ecotourism',
+                'Future development of the North Atlantic corridor',
+                'Green views without visual pollution',
+                'Close to beaches but without the crowds of more urbanized areas',
+                'Opportunity to create a low-impact, high-value project',
+                'Area with mid-term appreciation potential'
             ],
             es: [
-                'Ubicación prime en el hub turístico y comercial de mayor crecimiento de Costa Rica',
-                'Proximidad directa al Aeropuerto Internacional Daniel Oduber Quirós (< 5 minutos)',
-                'Posición estratégica en carretera principal conectando playas del Pacífico y frontera Nicaragua',
-                'Creciente demanda turística internacional con altas tasas de ocupación todo el año',
-                'Significativa inversión gubernamental y privada en infraestructura regional',
-                'Excelente conectividad aérea, terrestre y digital para operaciones comerciales',
-                'Incentivos fiscales disponibles para inversiones turísticas y orientadas a exportación',
-                'Historial comprobado de apreciación inmobiliaria en la zona'
+                'Creciente interés por turismo de naturaleza en la zona norte',
+                'Proximidad a la frontera y al aeropuerto de Liberia (a 1h)',
+                'Alta valoración ecológica y baja saturación turística',
+                'Políticas de conservación y apoyo al ecoturismo',
+                'Futuro desarrollo del corredor noratlántico',
+                'Vistas verdes y sin contaminación visual',
+                'Cercanía a playas pero sin las aglomeraciones de zonas más urbanizadas',
+                'Oportunidad de crear un proyecto de bajo impacto y alto valor',
+                'Área con potencial de valorización a mediano plazo'
             ]
         },
         idealFor: {
             en: [
-                'Luxury resort and boutique hotel developments',
-                'Corporate headquarters and regional distribution centers',
-                'Shopping centers and premium retail complexes',
-                'Medical tourism and wellness retreat facilities',
-                'Light industrial parks and logistics hubs',
-                'Mixed-use developments combining residential, commercial, and hospitality',
-                'Event venues and conference centers',
-                'Agribusiness and sustainable farming operations with export potential'
+                'Ecological or sustainable projects',
+                'Wellness or nature retreats',
+                'Eco-tourism lodging developments',
+                'Subdivision for estates or residences',
+                'Nature conservation initiatives',
+                'Sustainable agriculture projects',
+                'Wildlife observation centers',
+                'Educational and research facilities'
             ],
             es: [
-                'Desarrollos de resorts de lujo y hoteles boutique',
-                'Sedes corporativas y centros de distribución regional',
-                'Centros comerciales y complejos retail premium',
-                'Instalaciones de turismo médico y retiros de bienestar',
-                'Parques industriales ligeros y centros logísticos',
-                'Desarrollos de uso mixto combinando residencial, comercial y hospitalidad',
-                'Centros de eventos y conferencias',
-                'Operaciones agroindustriales y agricultura sostenible con potencial de exportación'
+                'Proyectos ecológicos o sostenibles',
+                'Retreats de bienestar o naturaleza',
+                'Desarrollos de hospedaje eco-turístico',
+                'Parcelación para quintas o residencias',
+                'Iniciativas de conservación natural',
+                'Proyectos de agricultura sostenible',
+                'Centros de observación de vida silvestre',
+                'Instalaciones educativas y de investigación'
             ]
         },
         images: [
@@ -172,12 +174,12 @@ export class PropertyService {
             }
         ],
         coordinates: {
-            lat: 10.6298,
-            lng: -85.4419
+            lat: 10.927,
+            lng: -85.644
         },
         contactInfo: {
             phone: '+506 8705-3354',
-            email: 'info@realestateliberia.com',
+            email: 'realestate@novelteak.com',
             whatsapp: '+506 8684-1571',
             owner: {
                 name: 'Novelteak',

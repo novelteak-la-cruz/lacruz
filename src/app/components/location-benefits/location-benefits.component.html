@@ -1,155 +1,153 @@
 <!-- Location & Benefits Section -->
 <section id="location" class="py-5 bg-white">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <!-- Location Text Content -->
-      <div class="col-lg-6">
-        <!-- Section Title -->
-        <div class="mb-4">
-          <h2 class="display-5 fw-bold mb-3">{{ translations.locationTitle }}</h2>
-          <div style="width: 100px; height: 4px; background: linear-gradient(45deg, #5e0039, #7a0049); border-radius: 2px;"></div>
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Location Text Content -->
+            <div class="col-lg-6">
+                <!-- Section Title -->
+                <div class="mb-4">
+                    <h2 class="display-5 fw-bold mb-3">{{ translations.locationTitle }}</h2>
+                    <div
+                        style="width: 100px; height: 4px; background: linear-gradient(45deg, #5e0039, #7a0049); border-radius: 2px;">
+                    </div>
+                </div>
+
+                <!-- Benefits List -->
+                <div class="mb-4">
+                    <div class="d-flex align-items-start mb-3"
+                        *ngFor="let benefit of property?.benefits[currentLanguage]; let i = index">
+                        <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0 mt-1"
+                            style="width: 32px; height: 32px;">
+                            <i class="fas fa-star text-primary" style="font-size: 0.8rem;"></i>
+                        </div>
+                        <p class="text-muted mb-0 lh-lg">{{ benefit }}</p>
+                    </div>
+                </div>
+
+                <!-- Location Stats -->
+                <div class="row g-3">
+                    <div class="col-sm-4">
+                        <div class="bg-primary bg-opacity-10 rounded p-3 text-center">
+                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-2"
+                                style="width: 40px; height: 40px;">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div class="h5 fw-bold mb-1">5 <small>Min</small></div>
+                            <div class="small text-muted fw-medium">
+                                {{ currentLanguage === 'en' ? 'To La Cruz' : 'A La Cruz' }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="bg-primary bg-opacity-10 rounded p-3 text-center">
+                            <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-2"
+                                style="width: 40px; height: 40px;">
+                                <i class="fas fa-umbrella-beach text-white"></i>
+                            </div>
+                            <div class="h5 fw-bold mb-1">25 <small>Min</small></div>
+                            <div class="small text-muted fw-medium">
+                                {{ currentLanguage === 'en' ? 'To Beaches' : 'A Playas' }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="bg-primary bg-opacity-10 rounded p-3 text-center">
+                            <div class="rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-2"
+                                style="width: 40px; height: 40px; background-color: #7a0049;">
+                                <i class="fas fa-plane text-white"></i>
+                            </div>
+                            <div class="h5 fw-bold mb-1">60 <small>Min</small></div>
+                            <div class="small text-muted fw-medium">
+                                {{ currentLanguage === 'en' ? 'To Airport' : 'Al Aeropuerto' }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location Visual -->
+            <div class="col-lg-6">
+                <!-- Map Container -->
+                <div class="bg-primary bg-gradient bg-opacity-10 rounded p-4 text-center mb-4">
+                    <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3"
+                        style="width: 60px; height: 60px;">
+                        <i class="fas fa-map-marker-alt text-white fs-4"></i>
+                    </div>
+                    <h3 class="h5 fw-bold mb-2">
+                        {{ currentLanguage === 'en' ? 'Privileged Location' : 'Ubicación Privilegiada' }}
+                    </h3>
+                    <p class="text-muted small fw-medium mb-0">
+                        {{ currentLanguage === 'en' ? 'La Cruz, Guanacaste' : 'La Cruz, Guanacaste' }}
+                    </p>
+                </div>
+
+                <!-- Proximity Items -->
+                <div class="d-grid gap-3">
+                    <div class="d-flex align-items-center p-3 bg-light rounded hover-item">
+                        <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+                            style="width: 40px; height: 40px;">
+                            <i class="fas fa-tree text-primary"></i>
+                        </div>
+                        <span class="fw-medium text-muted small">
+                            {{ currentLanguage === 'en' ? 'National Park Border' : 'Colinda con Parque Nacional' }}
+                        </span>
+                    </div>
+
+                    <div class="d-flex align-items-center p-3 bg-light rounded hover-item">
+                        <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+                            style="width: 40px; height: 40px;">
+                            <i class="fas fa-umbrella-beach text-primary"></i>
+                        </div>
+                        <span class="fw-medium text-muted small">
+                            {{ currentLanguage === 'en' ? 'Pacific Beaches' : 'Playas del Pacífico' }}
+                        </span>
+                    </div>
+
+                    <div class="d-flex align-items-center p-3 bg-light rounded hover-item">
+                        <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+                            style="width: 40px; height: 40px;">
+                            <i class="fas fa-flag text-primary"></i>
+                        </div>
+                        <span class="fw-medium text-muted small">
+                            {{ currentLanguage === 'en' ? 'Nicaragua Border' : 'Frontera Nicaragua' }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Satellite Map -->
+                <div class="mt-4">
+                    <h4 class="h6 fw-bold mb-3">
+                        {{ currentLanguage === 'en' ? 'Satellite View' : 'Vista Satelital' }}
+                    </h4>
+                    <div class="map-container overflow-hidden">
+                        <app-kml-viewer 
+                            [compact]="true"
+                            style="width: 100%; height: 350px; display: block; border: 0;"
+                            [title]="currentLanguage === 'en' ? 'Property Location - Satellite View' : 'Ubicación de la Propiedad - Vista Satelital'">
+                        </app-kml-viewer>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between mt-2">
+                        <div class="small text-muted">
+                            <i class="fas fa-map-pin me-1" style="color: #5e0039;"></i>
+                            {{ currentLanguage === 'en' ? 'Coordinates: 10.613496, -85.480698' : 'Coordenadas: 10.613496, -85.480698' }}
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="https://www.google.com/maps?q=10.613496,-85.480698" target="_blank"
+                                class="btn btn-xs btn-outline-primary px-2 py-1">
+                                <i class="fas fa-external-link-alt me-1 small"></i>
+                                <span class="small">{{ currentLanguage === 'en' ? 'Google Maps' : 'Google Maps' }}</span>
+                            </a>
+                            <a href="https://waze.com/ul?ll=10.613496,-85.480698&navigate=yes" target="_blank"
+                                class="btn btn-xs btn-outline-secondary px-2 py-1">
+                                <i class="fas fa-route me-1 small"></i>
+                                <span class="small">{{ currentLanguage === 'en' ? 'Waze' : 'Waze' }}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <!-- Benefits List -->
-        <div class="mb-4">
-          <div class="d-flex align-items-start mb-3" *ngFor="let benefit of property?.benefits[currentLanguage]; let i = index">
-            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center me-3 flex-shrink-0 mt-1" 
-                 style="width: 32px; height: 32px;">
-              <i class="fas fa-star text-primary" style="font-size: 0.8rem;"></i>
-            </div>
-            <p class="text-muted mb-0 lh-lg">{{ benefit }}</p>
-          </div>
-        </div>
-        
-        <!-- Location Stats -->
-        <div class="row g-3">
-          <div class="col-sm-4">
-            <div class="bg-primary bg-opacity-10 rounded p-3 text-center">
-              <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-2" 
-                   style="width: 40px; height: 40px;">
-                <i class="fas fa-plane text-white"></i>
-              </div>
-              <div class="h5 fw-bold mb-1">5 <small>Min</small></div>
-              <div class="small text-muted fw-medium">
-                {{ currentLanguage === 'en' ? 'To Airport' : 'Al Aeropuerto' }}
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-sm-4">
-            <div class="bg-primary bg-opacity-10 rounded p-3 text-center">
-              <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-2" 
-                   style="width: 40px; height: 40px;">
-                <i class="fas fa-road text-white"></i>
-              </div>
-              <div class="h5 fw-bold mb-1">2 <small>Min</small></div>
-              <div class="small text-muted fw-medium">
-                {{ currentLanguage === 'en' ? 'To Highway' : 'A la Autopista' }}
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-sm-4">
-            <div class="bg-primary bg-opacity-10 rounded p-3 text-center">
-              <div class="rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-2" 
-                   style="width: 40px; height: 40px; background-color: #7a0049;">
-                <i class="fas fa-building text-white"></i>
-              </div>
-              <div class="h5 fw-bold mb-1">10 <small>Min</small></div>
-              <div class="small text-muted fw-medium">
-                {{ currentLanguage === 'en' ? 'To City Center' : 'Al Centro' }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Location Visual -->
-      <div class="col-lg-6">
-        <!-- Map Container -->
-        <div class="bg-primary bg-gradient bg-opacity-10 rounded p-4 text-center mb-4">
-          <div class="bg-primary rounded-circle d-inline-flex align-items-center justify-content-center mx-auto mb-3" 
-               style="width: 60px; height: 60px;">
-            <i class="fas fa-map-marker-alt text-white fs-4"></i>
-          </div>
-          <h3 class="h5 fw-bold mb-2">
-            {{ currentLanguage === 'en' ? 'Strategic Location' : 'Ubicación Estratégica' }}
-          </h3>
-          <p class="text-muted small fw-medium mb-0">
-            {{ currentLanguage === 'en' ? 'Liberia, Guanacaste' : 'Liberia, Guanacaste' }}
-          </p>
-        </div>
-        
-        <!-- Proximity Items -->
-        <div class="d-grid gap-3">
-          <div class="d-flex align-items-center p-3 bg-light rounded hover-item">
-            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center me-3" 
-                 style="width: 40px; height: 40px;">
-              <i class="fas fa-plane text-primary"></i>
-            </div>
-            <span class="fw-medium text-muted small">
-              {{ currentLanguage === 'en' ? 'Daniel Oduber Airport' : 'Aeropuerto Daniel Oduber' }}
-            </span>
-          </div>
-          
-          <div class="d-flex align-items-center p-3 bg-light rounded hover-item">
-            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center me-3" 
-                 style="width: 40px; height: 40px;">
-              <i class="fas fa-umbrella-beach text-primary"></i>
-            </div>
-            <span class="fw-medium text-muted small">
-              {{ currentLanguage === 'en' ? 'Pacific Beaches' : 'Playas del Pacífico' }}
-            </span>
-          </div>
-          
-          <div class="d-flex align-items-center p-3 bg-light rounded hover-item">
-            <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center me-3" 
-                 style="width: 40px; height: 40px;">
-              <i class="fas fa-flag text-primary"></i>
-            </div>
-            <span class="fw-medium text-muted small">
-              {{ currentLanguage === 'en' ? 'Nicaragua Border' : 'Frontera Nicaragua' }}
-            </span>
-          </div>
-        </div>
-        
-        <!-- Satellite Map -->
-        <div class="mt-4">
-          <h4 class="h6 fw-bold mb-3">
-            {{ currentLanguage === 'en' ? 'Satellite View' : 'Vista Satelital' }}
-          </h4>
-          <div class="map-container overflow-hidden">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.123456789!2d-85.480698!3d10.613496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDM2JzQ4LjYiTiA4NcKwMjgnNTAuNSJX!5e1!3m2!1sen!2scr!4v1234567890123!5m2!1sen!2scr"
-              width="100%" 
-              height="250" 
-              style="border:0;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade"
-              title="{{ currentLanguage === 'en' ? 'Property Location - Satellite View' : 'Ubicación de la Propiedad - Vista Satelital' }}">
-            </iframe>
-          </div>
-          <div class="d-flex align-items-center justify-content-between mt-2">
-            <div class="small text-muted">
-              <i class="fas fa-map-pin me-1" style="color: #5e0039;"></i>
-              {{ currentLanguage === 'en' ? 'Coordinates: 10.613496, -85.480698' : 'Coordenadas: 10.613496, -85.480698' }}
-            </div>
-            <div class="d-flex gap-2">
-              <a href="https://www.google.com/maps?q=10.613496,-85.480698" target="_blank" 
-                 class="btn btn-xs btn-outline-primary px-2 py-1">
-                <i class="fas fa-external-link-alt me-1 small"></i>
-                <span class="small">{{ currentLanguage === 'en' ? 'Google Maps' : 'Google Maps' }}</span>
-              </a>
-              <a href="https://waze.com/ul?ll=10.613496,-85.480698&navigate=yes" target="_blank" 
-                 class="btn btn-xs btn-outline-secondary px-2 py-1">
-                <i class="fas fa-route me-1 small"></i>
-                <span class="small">{{ currentLanguage === 'en' ? 'Waze' : 'Waze' }}</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </section>

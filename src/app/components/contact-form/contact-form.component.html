@@ -109,51 +109,99 @@
                             </p>
                         </div>
 
-                        <form class="modern-form">
+                        <form class="modern-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
                             <div class="row g-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control form-control-modern" id="firstName" [placeholder]="translations.firstName" required />
-                                        <label for="firstName" class="text-muted">{{ translations.firstName }}</label>
+                                        <input 
+                                            type="text" 
+                                            class="form-control form-control-modern" 
+                                            id="firstName" 
+                                            name="firstName"
+                                            [(ngModel)]="formData.name"
+                                            placeholder="{{ currentLanguage === 'en' ? 'Your Name' : 'Tu Nombre' }}"
+                                            required>
+                                        <label for="firstName" class="text-muted">{{ currentLanguage === 'en' ? 'Name *' : 'Nombre *' }}</label>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control form-control-modern" id="lastName" [placeholder]="translations.lastName" required />
-                                        <label for="lastName" class="text-muted">{{ translations.lastName }}</label>
+                                        <input 
+                                            type="email" 
+                                            class="form-control form-control-modern" 
+                                            id="email" 
+                                            name="email"
+                                            [(ngModel)]="formData.email"
+                                            placeholder="{{ currentLanguage === 'en' ? 'your@email.com' : 'tu@correo.com' }}"
+                                            required>
+                                        <label for="email" class="text-muted">{{ currentLanguage === 'en' ? 'Email *' : 'Correo *' }}</label>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control form-control-modern" id="email" [placeholder]="translations.email" required />
-                                        <label for="email" class="text-muted">{{ translations.email }}</label>
+                                        <input 
+                                            type="tel" 
+                                            class="form-control form-control-modern" 
+                                            id="phone" 
+                                            name="phone"
+                                            [(ngModel)]="formData.phone"
+                                            placeholder="{{ currentLanguage === 'en' ? '+506 8888-8888' : '+506 8888-8888' }}">
+                                        <label for="phone" class="text-muted">{{ currentLanguage === 'en' ? 'Phone (Optional)' : 'Teléfono (Opcional)' }}</label>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="tel" class="form-control form-control-modern" id="phone" [placeholder]="translations.phone" />
-                                        <label for="phone" class="text-muted">{{ translations.phone }}</label>
+                                        <textarea 
+                                            class="form-control form-control-modern" 
+                                            id="message" 
+                                            name="message"
+                                            [(ngModel)]="formData.message"
+                                            style="min-height: 120px;" 
+                                            placeholder="{{ currentLanguage === 'en' ? 'Tell us about your interest...' : 'Cuéntanos sobre tu interés...' }}"
+                                            required></textarea>
+                                        <label for="message" class="text-muted">{{ currentLanguage === 'en' ? 'Message *' : 'Mensaje *' }}</label>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control form-control-modern" id="message" style="min-height: 120px;" [placeholder]="translations.messagePlaceholder"></textarea>
-                                        <label for="message" class="text-muted">{{ translations.message }}</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-primary btn-lg w-100 py-3 rounded-3 fw-semibold" style="background: linear-gradient(135deg, #5e0039, #7a0049); border: none; position: relative; overflow: hidden;">
-                                        <span class="position-relative z-1">
+                                    <button 
+                                        type="submit" 
+                                        class="btn btn-primary btn-lg w-100 py-3 rounded-3 fw-semibold position-relative overflow-hidden" 
+                                        style="background: linear-gradient(135deg, #5e0039, #7a0049); border: none;"
+                                        [disabled]="isSubmitting">
+                                        
+                                        <span class="position-relative z-1" *ngIf="!isSubmitting">
                                             <i class="fas fa-paper-plane me-2"></i>
-                                            {{ translations.sendMessage }}
+                                            {{ currentLanguage === 'en' ? 'Send Message' : 'Enviar Mensaje' }}
                                         </span>
+                                        
+                                        <span class="position-relative z-1" *ngIf="isSubmitting">
+                                            <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                            {{ currentLanguage === 'en' ? 'Sending...' : 'Enviando...' }}
+                                        </span>
+                                        
                                         <div class="position-absolute top-0 start-0 w-100 h-100 opacity-0" style="background: linear-gradient(135deg, #7a0049, #5e0039); transition: opacity 0.3s ease;"></div>
                                     </button>
+                                </div>
+
+                                <!-- Success Message -->
+                                <div class="col-12" *ngIf="showSuccessMessage">
+                                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                                        <i class="fas fa-check-circle me-3 fs-4"></i>
+                                        <div>
+                                            <h6 class="alert-heading mb-1">
+                                                {{ currentLanguage === 'en' ? 'Message Sent Successfully!' : '¡Mensaje Enviado Exitosamente!' }}
+                                            </h6>
+                                            <p class="mb-0">
+                                                {{ currentLanguage === 'en' 
+                                                    ? 'Thank you for your interest. We will contact you within 24 hours.' 
+                                                    : 'Gracias por tu interés. Te contactaremos dentro de 24 horas.' }}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="col-12 text-center">

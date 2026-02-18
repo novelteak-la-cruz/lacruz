@@ -21,7 +21,20 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
     // Gallery properties
     currentMediaType: 'video' | 'image' = 'video';
     currentImageIndex: number = 0;
+    currentVideoIndex: number = 0;
+    videoLoading: boolean = false;
     galleryImages: string[] = [];
+    
+    // Video properties
+    videos: { path: string, title: string }[] = [
+        { path: 'assets/videos/lacruz.mp4', title: 'La Cruz Property' }
+    ];
+    
+    galleryVideos: { src: string, title: string }[] = [
+        { src: 'assets/videos/lacruz.mp4', title: 'La Cruz Property' }
+    ];
+    
+    preloadedVideos: { [key: string]: HTMLVideoElement } = {};
 
     private propertySubscription?: Subscription;
     private languageSubscription?: Subscription;
@@ -56,8 +69,38 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
         }
     }
 
-    showVideo(): void {
+    showVideo(index: number = 0): void {
+        if (index === this.currentVideoIndex && this.currentMediaType === 'video' && !this.videoLoading) {
+            return; // Ya está mostrando este video y no está cargando
+        }
+        
+        console.log('Changing to video index:', index);
+        console.log('Video path:', this.videos[index]?.path);
+        
+        this.videoLoading = true;
         this.currentMediaType = 'video';
+        this.currentVideoIndex = index;
+        
+        // Forzar la actualización del DOM y reproducir automáticamente
+        setTimeout(() => {
+            const videoElement = document.querySelector('#galleryVideo') as HTMLVideoElement;
+            if (videoElement) {
+                const newSrc = this.videos[index]?.path;
+                console.log('Setting video src to:', newSrc);
+                videoElement.src = newSrc;
+                videoElement.load(); // Forzar recarga
+                
+                // Reproducir automáticamente cuando esté listo
+                videoElement.addEventListener('canplay', () => {
+                    console.log('Video ready, starting autoplay');
+                    videoElement.play().then(() => {
+                        console.log('Video playing automatically');
+                    }).catch((error) => {
+                        console.log('Autoplay failed:', error);
+                    });
+                }, { once: true });
+            }
+        }, 10);
     }
 
     showImage(index: number): void {
@@ -72,6 +115,7 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
     ngAfterViewInit(): void {
         if (isPlatformBrowser(this.platformId)) {
             this.initializeVideo();
+            this.preloadVideos();
         }
     }
 
@@ -201,5 +245,33 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
 
     getTelLink(): string {
         return this.phoneFormatService.formatForTel(this.property?.contactInfo.phone || '');
+    }
+
+    getCurrentVideoPath(): string {
+        return this.videos[this.currentVideoIndex]?.path || this.videos[0]?.path || '';
+    }
+
+    getCurrentVideoTitle(): string {
+        return this.videos[this.currentVideoIndex]?.title || this.videos[0]?.title || '';
+    }
+
+    private preloadVideos(): void {
+        // Precargar todos los videos para cambios más rápidos
+        this.videos.forEach((video, index) => {
+            if (index !== this.currentVideoIndex) { // No precargar el video actual
+                const videoElement = document.createElement('video');
+                videoElement.preload = 'metadata';
+                videoElement.muted = true;
+                videoElement.src = video.path;
+                this.preloadedVideos[video.path] = videoElement;
+                
+                // Cargar metadata del video
+                videoElement.load();
+            }
+        });
+    }
+
+    isVideoLoading(): boolean {
+        return this.videoLoading && this.currentMediaType === 'video';
     }
 }
