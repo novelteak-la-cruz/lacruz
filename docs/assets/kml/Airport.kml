@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="planos_kml__planos_kml" id="planos_kml__planos_kml">
+	<SimpleField name="timestamp" type="string"></SimpleField>
+	<SimpleField name="begin" type="string"></SimpleField>
+	<SimpleField name="end" type="string"></SimpleField>
+	<SimpleField name="altitudeMode" type="string"></SimpleField>
+	<SimpleField name="tessellate" type="int"></SimpleField>
+	<SimpleField name="extrude" type="int"></SimpleField>
+	<SimpleField name="visibility" type="int"></SimpleField>
+	<SimpleField name="drawOrder" type="int"></SimpleField>
+	<SimpleField name="icon" type="string"></SimpleField>
+	<SimpleField name="HECTAREAS" type="float"></SimpleField>
+	<SimpleField name="FOLIO" type="string"></SimpleField>
+	<SimpleField name="PLANO" type="string"></SimpleField>
+	<SimpleField name="PERIMETER" type="float"></SimpleField>
+	<SimpleField name="FINCA" type="string"></SimpleField>
+	<SimpleField name="PAIS" type="string"></SimpleField>
+	<SimpleField name="X" type="float"></SimpleField>
+	<SimpleField name="Y" type="float"></SimpleField>
+</Schema>
+<Folder><name>planos_kml__planos_kml</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#planos_kml__planos_kml">
+		<SimpleData name="tessellate">-1</SimpleData>
+		<SimpleData name="extrude">0</SimpleData>
+		<SimpleData name="visibility">-1</SimpleData>
+		<SimpleData name="HECTAREAS">16.12737</SimpleData>
+		<SimpleData name="FOLIO">5-147238-000</SimpleData>
+		<SimpleData name="PLANO">5-1037027-2005</SimpleData>
+		<SimpleData name="PERIMETER">1628.73631</SimpleData>
+		<SimpleData name="FINCA">NOA</SimpleData>
+		<SimpleData name="PAIS">CR</SimpleData>
+		<SimpleData name="X">323963.9339</SimpleData>
+		<SimpleData name="Y">1221923</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>-85.6092511366711,11.0470181518023 -85.6092511557423,11.0470182262777 -85.6086614091918,11.0448828195559 -85.6100816471557,11.0446736841353 -85.6112375352069,11.0445551441475 -85.6113040519429,11.0445585126247 -85.6115099826834,11.0445821441407 -85.6116204587038,11.0445717404629 -85.6117451540928,11.0445332316651 -85.6121959342143,11.0444386696003 -85.6128555013072,11.0443793857603 -85.6131143478655,11.0443506937658 -85.6132080850253,11.0443403035785 -85.6136061347111,11.0451612806522 -85.6132701540206,11.0454416152121 -85.6130971723415,11.0458063894809 -85.6129232472438,11.046119937063 -85.6126349812313,11.0464777702846 -85.6121342179141,11.0474013935144 -85.6119900618085,11.0476531140049 -85.6115892802569,11.04795592433 -85.6111231245042,11.0481322784157 -85.6105660824619,11.0483174505859 -85.6100786821698,11.0484905092983 -85.6096704238485,11.0485477406999 -85.6095317897772,11.0480470914398 -85.6094557590732,11.0477720180241 -85.6093747084457,11.047465995803 -85.6092511366711,11.0470181518023</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+</Folder>
+</Document></kml>
